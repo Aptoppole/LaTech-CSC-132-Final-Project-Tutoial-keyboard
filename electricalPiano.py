@@ -20,26 +20,28 @@ class key(object):
     pass
 
 class lesson(Frame):
-  def __init__(self, master, activity, quiz, instructions):
+  def __init__(self, master, activity, instructions):
     Frame.__init__(self, master)
     self.activity = activiity
-    self.quiz = quiz
     self.instrucitons = instructions
-    
-  def update(self):
-    #this function will blank the screen
-    pass 
   
   def setUpGUI(self):
     #this function will display an activity and verify that it is done correctly
+    #Alex and Jonah, I thought this function simplified our original design--Eddie
     self.instructions.grid(row=0, column=0, sticky=N+E+W)
     self.activity.grid(row=1, column=0, sticky=E+W+S)
     pass
   
-  def showQuiz(self):
-    #this function will display the 
+  def compileLesson(self):
+    #this function should light up the leds that need to be pressed
     pass
 
+######################################################################################
+#the main function of the program that compiles most of the program
+def main_function(array):
+  for i in range(len(array)):
+    #play the sounds and light up the LEDs
+  pass
   
 ######################################################################################
 #main part of the gui program
