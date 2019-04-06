@@ -52,15 +52,19 @@ class Lesson(Frame):
     self.instructions.grid(row=0, column=0, sticky=N+E+W)
     self.activity.grid(row=1, column=0, sticky=E+W+S)
   
-  def compileLesson(self):
-    #this function should light up the leds that need to be pressed
-    pass
-  
 ######################################################################################
 #main part of the gui program
 length=800
 width=800
-A = 
+
+A = Key("A", )
+B = Key("B", )
+C = Key("C", )
+D = Key("D", )
+E = Key("E", )
+F = Key("F", )
+G = Key("G", )
+A2 = Key("A2", )
 
 window = Tk()
 window.title("Piano Teacher--Final Project for CSC 132")
