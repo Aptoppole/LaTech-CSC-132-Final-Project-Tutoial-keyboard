@@ -1,6 +1,6 @@
 ######################################################################################
 # a test for our circuit
-import Rpi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 gpio.setmode(gpio.BCM)
 gpio.setup(switches, gpio.IN, pull_up_down=gpio.PUD_DOWN)
