@@ -40,15 +40,3 @@ class Key(object):
       GPIO.cleanup()
       exit(0) 
       
-class Lesson(Frame):
-  def __init__(self, master, activity, instructions):
-    Frame.__init__(self, master)
-    self.activity = activiity
-    self.instrucitons = instructions
-  
-  def setUpGUI(self):
-    #this function will display an activity and verify that it is done correctly
-    #Alex and Jonah, I thought this function simplified our original design--Eddie
-    self.instructions.grid(row=0, column=0, sticky=N+E+W)
-    self.activity.grid(row=1, column=0, sticky=E+W+S)
-  
