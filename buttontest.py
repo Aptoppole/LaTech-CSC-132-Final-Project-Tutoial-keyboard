@@ -8,9 +8,12 @@ gpio.setup(leds, gpio.OUT)
 
 leds = []
 switches = []
-sounds = [pg.mixer.Sound("")]
 
 def play():
   pressed = False
   while True:
-    
+    for i in range(len(switches)):
+      while GPIO.input(switches[i]):
+        val = i
+        pressed = True
+        print("Yay")
