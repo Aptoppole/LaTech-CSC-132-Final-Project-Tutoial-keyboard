@@ -1,15 +1,14 @@
 #####################################################################################
 #the various libraries we've imported for this project
-from Tkinter import *
 import RPi.GPIO as GPIO
 import pygame as pg
 from sys import exit
 from time import sleep
 #####################################################################################
 #various setup things for GPIO etc.
-gpio.setmode(gpio.BCM)
-gpio.setup(switches, gpio.IN, pull_up_down=gpio.PUD_DOWN)
-gpio.setup(leds, gpio.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(switches, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(leds, GPIO.OUT)
 
 leds = []
 switches = []
@@ -30,11 +29,11 @@ class Key(object):
     try:
       while True:
         while not pressed:
-          while gpio.input(self.switch) == True:
+          while GPIO.input(self.switch) == True:
             val = i
             pressed = True
             sounds[val].play()
-            gpio.output(leds[val], True)
+            GPIO.output(leds[val], True)
     
     except KeyboardInterrupt:
       GPIO.cleanup()
