@@ -52,21 +52,3 @@ class Lesson(Frame):
     self.instructions.grid(row=0, column=0, sticky=N+E+W)
     self.activity.grid(row=1, column=0, sticky=E+W+S)
   
-######################################################################################
-#main part of the gui program
-length=800
-width=800
-
-A = Key("A", )
-B = Key("B", )
-C = Key("C", )
-D = Key("D", )
-E = Key("E", )
-F = Key("F", )
-G = Key("G", )
-A2 = Key("A2", )
-
-window = Tk()
-window.title("Piano Teacher--Final Project for CSC 132")
-window.geometry("{}X{}".format(length, width))
-window.mainloop()
