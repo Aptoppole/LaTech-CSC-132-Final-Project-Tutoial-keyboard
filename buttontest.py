@@ -2,9 +2,9 @@
 # a test for our circuit
 import RPi.GPIO as GPIO
 
-gpio.setmode(gpio.BCM)
-gpio.setup(switches, gpio.IN, pull_up_down=gpio.PUD_DOWN)
-gpio.setup(leds, gpio.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(switches, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(leds, GPIO.OUT)
 
 leds = []
 switches = []
