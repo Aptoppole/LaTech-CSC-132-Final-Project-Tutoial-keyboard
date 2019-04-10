@@ -16,4 +16,4 @@ def play():
       while GPIO.input(switches[i]):
         val = i
         pressed = True
-        print("Yay")
+      print("Yay")
