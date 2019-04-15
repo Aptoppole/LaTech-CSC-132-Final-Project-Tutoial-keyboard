@@ -18,6 +18,8 @@ class Lesson(Frame):
   
 ######################################################################################
 #main part of the gui program
+#So, here's the problem. We need the sheet music and the keys to play on the keyboard.
+#Once we get that, I can build the GUI to match our specifications. --Eddie
 length=800
 width=800
 
