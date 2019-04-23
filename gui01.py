@@ -30,7 +30,7 @@ class App(Frame):
       
   def process(self, thingy):
     #this should make the buttons do things
-    if thingy == "Creidts":
+    if thingy == "Credits":
         pass
     elif thingy == "Start":
         pass
