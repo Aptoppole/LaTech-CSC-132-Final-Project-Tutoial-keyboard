@@ -3,7 +3,6 @@ from Tkinter import *
 class App(Frame):
   def __init__(self, master):
     Frame.__init__(self, master)
-    master.attributes("-fullscreen", True)
     self.currentscreen = "title"
     self.img = None
     self.dostuff()
@@ -23,7 +22,7 @@ class App(Frame):
     self.pack(fill=BOTH, expand=1)
     bgimg = self.img
     App.image = Label(self, width="WIDTH", image=bgimg)
-    App.image.pack(side=MIDDLE, fill=BOTH)
+    App.image.pack(side=TOP, fill=BOTH)
     App.image.pack_propagate(False)
       
   def process(self):
@@ -34,7 +33,10 @@ class App(Frame):
     self.setBackground()
     self.setUpGUI()
 
+WIDTH = 800
+HEIGHT = 480
 window = Tk()
 window.title("Piano Lessons")
+window.geometry("{}x{}".format(WIDTH, HEIGHT))
 app = App(window)
 window.mainloop()
