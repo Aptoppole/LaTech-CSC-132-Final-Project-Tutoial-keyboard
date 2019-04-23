@@ -11,8 +11,10 @@ class App(Frame):
     #this function should put the images in the proper places
     if self.currentscreen == "title":
       self.img = PhotoImage(file="Title.gif")
-      creditButton = Button(self, bg="lightgray", text="Credits", self.process("Credits"))
+      creditButton = Button(self, bg="lightgray", text="Credits", width="50", height="25", self.process("Credits"))
       startButton = Button(self, bg="lightgray", text="Start", self.process("Start"))
+      creditButton.pack(side=BOTTOM)
+      startButton.pack(side=BOTTOM)
       
   def createButtons(self):
     #this function should create the buttons for doing various things
@@ -46,3 +48,4 @@ window.title("Piano Lessons")
 window.geometry("{}x{}".format(WIDTH, HEIGHT))
 app = App(window)
 window.mainloop()
+
