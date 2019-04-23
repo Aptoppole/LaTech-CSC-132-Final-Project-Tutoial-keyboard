@@ -6,6 +6,7 @@ class App(Frame):
     master.attributes("-fullscreen", True)
     self.currentscreen = "title"
     self.img = None
+    self.dostuff()
   
   def setBackground(self):
     #this function should put the images in the proper places
@@ -28,6 +29,10 @@ class App(Frame):
   def process(self):
     #this should make the buttons do things
     pass
+  
+  def dostuff(self):
+    self.setBackground()
+    self.setUpGUI()
 
 window = Tk()
 window.title("Piano Lessons")
