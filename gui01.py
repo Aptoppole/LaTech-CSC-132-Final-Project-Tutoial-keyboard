@@ -11,6 +11,8 @@ class App(Frame):
     #this function should put the images in the proper places
     if self.currentscreen == "title":
       self.img = PhotoImage(file="Title.gif")
+      creditButton = Button(self, bg="lightgray", text="Credits", self.process("Credits"))
+      startButton = Button(self, bg="lightgray", text="Start", self.process("Start"))
       
   def createButtons(self):
     #this function should create the buttons for doing various things
@@ -20,14 +22,18 @@ class App(Frame):
   def setUpGUI(self):
     #this function compiles the GUI
     self.pack(fill=BOTH, expand=1)
-    bgimg = self.img
-    App.image = Label(self, width="WIDTH", image=bgimg)
+    App.image = Label(self, bg="white", width=WIDTH, height=HEIGHT, image=self.img)
     App.image.pack(side=TOP, fill=BOTH)
     App.image.pack_propagate(False)
       
-  def process(self):
+  def process(self, thingy):
     #this should make the buttons do things
-    pass
+    if thingy == "Creidts":
+        pass
+    elif thingy == "Start":
+        pass
+    else
+        print "You piece of shit. What did you do?"
   
   def dostuff(self):
     self.setBackground()
