@@ -46,6 +46,11 @@ class App(Frame):
       image.pack_forget()
     elif prompt == "Start":
       self.currentscreen = "start"
+      global creditButton, startButton, image
+      self.currentscreen = "credit"
+      creditButton.pack_forget()
+      startButton.pack_forget()
+      image.pack_forget()
     elif prompt == "Back":
       global backButton, text, text_frame
       self.currentscreen = "title"
@@ -63,4 +68,5 @@ window.title("Piano Lessons")
 window.geometry("{}x{}".format(WIDTH, HEIGHT))
 app = App(window)
 window.mainloop()
+
 
