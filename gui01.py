@@ -45,9 +45,8 @@ class App(Frame):
       startButton.pack_forget()
       image.pack_forget()
     elif prompt == "Start":
-      self.currentscreen = "start"
       global creditButton, startButton, image
-      self.currentscreen = "credit"
+      self.currentscreen = "start"
       creditButton.pack_forget()
       startButton.pack_forget()
       image.pack_forget()
