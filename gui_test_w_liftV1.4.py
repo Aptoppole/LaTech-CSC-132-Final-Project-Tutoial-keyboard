@@ -22,26 +22,50 @@ class Credit(Page):
         label.pack(side="top", fill="both", expand=True)
 
 class Lessons(Page):
-    def __init__(self):
+    def __init__(self, l1, l2, l3, l4):
         Page.__init__(self)
+        self.l1 = l1
+        self.l2 = l2
+        self.l3 = l3
+        self.l4 = l4
+        
         for row in range(5):
             Grid.rowconfigure(self, row, weight=1)
         for col in range(5):
             Grid.columnconfigure(self, col, weight=1)
-        self.button1 = Button(self, bg = "lightgrey", text = "Lesson 1: Mary Had a Little Lamb")
+        self.button1 = Button(self, bg = "lightgrey", text = "Lesson 1: Mary Had a Little Lamb", command=self.l1.lift)
         self.button1.grid(row = 1, column = 1, sticky = N+E+W+S)
-        self.button2 = Button(self, bg = "lightgrey", text = "Lesson 2: Ode to Joy")
+        self.button2 = Button(self, bg = "lightgrey", text = "Lesson 2: Ode to Joy", command=self.l2.lift)
         self.button2.grid(row = 1, column = 3, sticky = N+E+W+S)
-        self.button3 = Button(self, bg = "lightgrey", text = "Lesson 3: Freeplay")
+        self.button3 = Button(self, bg = "lightgrey", text = "Lesson 3: Freeplay", command=self.l3.lift)
         self.button3.grid(row = 3, column = 1, sticky = N+E+W+S)
-        self.button4 = Button(self, bg = "lightgrey", text = "PLACEHOLDER")
+        self.button4 = Button(self, bg = "lightgrey", text = "Lesson 4: PLACEHOLDER", command=self.l4.lift)
         self.button4.grid(row = 3, column = 3, sticky = N+E+W+S)
 
 
 class LessonOne(Page):
     def __init__(self):
         Page.__init__(self)
-        
+        label = Label(self, text="This is page 1")
+        label.pack(side="top", fill="both", expand=True)
+
+class LessonTwo(Page):
+    def __init__(self):
+        Page.__init__(self)
+        label = Label(self, text="This is page 2")
+        label.pack(side="top", fill="both", expand=True)
+
+class LessonThree(Page):
+    def __init__(self):
+        Page.__init__(self)
+        label = Label(self, text="This is page 3")
+        label.pack(side="top", fill="both", expand=True)
+
+class LessonFour(Page):
+    def __init__(self):
+        Page.__init__(self)
+        label = Label(self, text="This is page 4")
+        label.pack(side="top", fill="both", expand=True)
         
 class PageCompiler(Frame):
     def __init__(self, master, bg = "white"):
@@ -49,7 +73,12 @@ class PageCompiler(Frame):
 
         ts = Titlescreen()
         cs = Credit()
-        ls =Lessons()
+        l1 = LessonOne()
+        l2 = LessonTwo()
+        l3 = LessonThree()
+        l4 = LessonFour()
+        ls =Lessons(l1,l2,l3,l4)
+        
 
         buttonframe = Frame(self)
         container = Frame(self)
@@ -59,6 +88,10 @@ class PageCompiler(Frame):
         ts.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
         cs.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
         ls.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        l1.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        l2.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        l3.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        l4.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
         
         bsb = Button(buttonframe, text="title", command=ts.lift)
         csb = Button(buttonframe, text="credits", command=cs.lift)
@@ -79,3 +112,4 @@ if __name__ == "__main__":
     program.pack(side="top", fill="both", expand=True)
     window.wm_geometry("800x480")
     window.mainloop()
+
