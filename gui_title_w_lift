@@ -1,0 +1,57 @@
+from Tkinter import *
+
+class Page(Frame):
+    def __init__(self, bg="white"):
+        Frame.__init__(self)
+
+    def show(self):
+        self.lift()
+
+class Titlescreen(Page):
+    def __init__(self):
+        Page.__init__(self)
+        img = PhotoImage(file="Title.gif")
+        self.image = Label(self, bg="white", image=img)
+        self.image.image = img
+        self.image.pack(side="top", fill="both", expand=True)
+##        label = Label(self, text="This is page 1")
+##        label.pack(side="top", fill="both", expand=True)
+
+class Credit(Page):
+    def __init__(self):
+        Page.__init__(self)
+        label = Label(self, text="Contributors: \n\n Jonah Fitzgerald, \n\n Alex Petty, \n\n Eddie Redmann")
+        label.pack(side="top", fill="both", expand=True)
+        
+class PageCompiler(Frame):
+    def __init__(self, master, bg = "white"):
+        Frame.__init__(self, master)
+
+        ts = Titlescreen()
+        cs = Credit()
+
+        buttonframe = Frame(self)
+        container = Frame(self)
+        buttonframe.pack(side="top", fill="x", expand=False)
+        container.pack(side="top", fill="both", expand=True)
+
+        ts.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        cs.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
+        
+        tsb = Button(buttonframe, text="title", command=ts.lift)
+        csb = Button(buttonframe, text="credits", command=cs.lift)
+
+        csb.pack(side="bottom")
+        tsb.pack(side="bottom")
+
+        
+    
+        ts.show()
+
+if __name__ == "__main__":
+    window = Tk()
+    window.title("Piano Lesson")
+    program = PageCompiler(window)
+    program.pack(side="top", fill="both", expand=True)
+    window.wm_geometry("800x480")
+    window.mainloop()
