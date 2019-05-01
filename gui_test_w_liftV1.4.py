@@ -48,6 +48,43 @@ class LessonOne(Page):
         Page.__init__(self)
         label = Label(self, text="This is page 1")
         label.pack(side="top", fill="both", expand=True)
+############################ BUGED NEED FIX ###################################################
+##        self.button1 = Button(self, bg="lightgrey", text = "next page", command=self.nextPage())
+##        self.button1.grid(row=1, column=2, sticky = N+E+W+S)
+##        
+##        
+##    def nextPage(self):
+##        self.pack_forget()
+##        self.pageNum += 1
+##        self.pageUpdate()
+##
+##    def backPage(self):
+##        if (self.pageNum == 1):
+##            pass
+##        else:
+##            self.pack_forget()
+##            self.pageNum -= 1
+##            self.pageUpdate()
+##
+##    def exitLesson(self):
+##        self.pack_forget()
+##
+##    def pageUpdate(self):
+##        if (self.pageNum==1):
+##            print ("1")
+##            self.label = Label(self, text="This is page 1.1")
+##            self.label.pack(side="top", fill="both", expand=True)
+##        elif (self.pageNum==2):
+##            print ("2")
+##            self.label = Label(self, text="This is page 1.2")
+##            self.label.pack(side="top", fill="both", expand=True)
+##        elif (self.pageNum==3):
+##            print ("3")
+##            self.label = Label(self, text="This is page 1.3")
+##            self.label.pack(side="top", fill="both", expand=True)
+##        else:
+##            pass
+
 
 class LessonTwo(Page):
     def __init__(self):
