@@ -143,7 +143,7 @@ class LessonOne(Lesson):
         if self.pageNum < len(self.switches)+1:
             for i in range(len(self.switches)+1):
                 if self.pageNum == i:
-                    img = PhotoImage(file=self.pictures[i-1])
+                    img = PhotoImage(file=self.pictures2[i-1])
                     self.label.configure(image=img)
                     self.label.image = img
                     break
@@ -186,8 +186,86 @@ class LessonOne(Lesson):
 class LessonTwo(Lesson):
     def __init__(self):
         Lesson.__init__(self)
-        label = Label(self, text="This is page 2")
-        label.pack(side="top", fill="both", expand=True)
+########################## BUGGED, NEED TO FIX ###################################################
+        self.pageNum = 0
+        self.button1 = Button(self, bg="lightgrey", text = "Next", command=lambda:self.nextPage())
+        self.button1.pack(side="right", expand=False)
+
+        self.button2 = Button(self, bg="lightgrey", text = "Back", command=lambda:self.backPage())
+        self.button2.pack(side="left", expand=False)
+        self.label = Label(self, text="Welcome to our interactive piano. In this lesson,\n"\
+                           "we aim to familiarize you with the notes on the treble clef staff.\n"\
+                           "Press the 'Next' button at the top of your screen to start the lesson.")
+        self.label.pack(side="top", fill="both", expand=True)
+        self.val = 0
+        self.my_vals = []
+        
+    def nextPage(self):
+        if self.pageNum == 1:
+            self.label.pack_forget()
+            self.pageNum += 1
+            self.pageUpdate()
+        else:
+            self.label.pack_forget()
+            self.pageNum += 1
+            self.pageUpdate()
+
+    def backPage(self):
+        if (self.pageNum == 1):
+            pass
+        else:
+            self.label.pack_forget()
+            self.pageNum -= 1
+            self.pageUpdate()
+            
+
+    def pageUpdate(self):
+        self.label = Label(self, image=None, text="Click 'Next' to move on.")
+        self.label.pack(side="left", fill="both", expand=True)
+
+        my_vals = []
+        if self.pageNum < len(self.switches)+1:
+            for i in range(len(self.switches)+1):
+                if self.pageNum == i:
+                    img = PhotoImage(file=self.pictures2[i-1])
+                    self.label.configure(image=img)
+                    self.label.image = img
+                    break
+            self.check_input(self.pageNum-1)
+        elif self.pageNum > len(self.switches)+1 and self.pageNum < 2*(len(self.switches)+1):
+            val = randint(0, len(self.switches)-1)
+            if self.pageNum % 2 == 0:
+                self.my_vals.append(val)
+            my_val = self.my_vals[len(self.my_vals)-2]
+            if self.pageNum % 2 == 0:
+                img = PhotoImage(file=self.pictures2[my_val])
+                self.label.configure(image=img)
+                self.label.image = img
+            else:
+                self.take_test(my_val)
+            
+        else:
+            self.label.configure(text="Congratulations! You're done with the tutorial!")
+
+    def check_input(self, num):
+        while GPIO.input(self.switches[num]) == False:
+            GPIO.output(self.leds[num], GPIO.HIGH)
+        GPIO.output(self.leds[num], GPIO.LOW)
+        while GPIO.input(self.switches[num]) == True:
+            self.notes[num].play(-1)
+        self.notes[num].stop()
+
+    def take_test(self, num):
+        while True:
+            pressed = False
+            while GPIO.input(self.switches[num]) == True:
+                GPIO.output(self.leds[num], GPIO.HIGH)
+                self.notes[num].play(-1)
+                pressed = True
+            self.notes[num].stop()
+            GPIO.output(self.leds[num], GPIO.LOW)
+            if pressed:
+                break
 
 class LessonThree(Lesson):
     def __init__(self):
