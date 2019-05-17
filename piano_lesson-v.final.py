@@ -5,6 +5,7 @@ from array import array
 from random import randint
 from time import sleep
 
+#This is the final version of the code
 mixer_freq = 44100
 mixer_size = -16
 mixer_chans = 1
